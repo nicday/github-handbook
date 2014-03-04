@@ -1,4 +1,4 @@
-# Git Playbook
+# Git Handbook
 
 ### Creating a new repo
 1. First create a new repo on GitHub. [More information](https://help.github.com/articles/create-a-repo)
@@ -36,7 +36,7 @@
 	git remote add origin https://github.com/username/repo-name.git
 	```
 
-7. Once your local repo knows where the remote repo is on GitHub, and you have changes commited and ready to push to the remote repo, then you can run the following command in Terminal to push the changes. 
+7. Once your local repo knows where the remote repo is on GitHub, and you have changes committed and ready to push to the remote repo, then you can run the following command in Terminal to push the changes. 
   
 	In the example below we are pushing changes to the remote repo we created in step 6 and ensuring the changes go the the (default) master branch.
 	```sh
@@ -68,7 +68,7 @@
   ``` 
   *In the above example replace the index.html with the name of the file you want stage the removal of.*
   
-2. Commit the changes, with a message that desicribes the change.
+2. Commit the changes, with a message that describes the change.
   ```sh
   git commit -m "Included jQuery slider"
   ```
@@ -87,7 +87,7 @@ If you create additional branches directly on Github and need to use them locall
 	git fetch origin
 	```
 
-2. To change brnaches you can use the `git checkout` command:
+2. To change branches you can use the `git checkout` command:
 	```sh
 	git checkout gh-pages
 	```
@@ -100,11 +100,20 @@ If you create additional branches directly on Github and need to use them locall
   git push origin gh-pages
   ```
 
-4. If you need to check which branch you are on you can run `git branch` which will produce an output similar to the below, where the selected branch is identified with a `*` infront of the branch name.
+4. If you need to check which branch you are on you can run `git branch` which will produce an output similar to the below, where the selected branch is identified with a `*` in front of the branch name.
 	```sh
 	  * master
 	     gh-pages
 	```
+
+### Cloning a repo
+To copy an existing repo to your local machine (for example, to access and update your repo from another computer) you run `git clone` followed by the git url of the existing repo.
+
+```sh
+git clone https://github.com/username/repo-name.git
+```
+
+Using this technique you can download public repos for existing libraries and frameworks such as jQuery, Lightbox2, Foundation, etc...
 
 ### Merging branches
 *To be completed...*
