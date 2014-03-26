@@ -35,6 +35,7 @@
 	```sh
 	git remote add origin https://github.com/username/repo-name.git
 	```
+  *Note that you need to use the remote repo URL, for your repo, that you created on GitHub*
 
 7. Once your local repo knows where the remote repo is on GitHub, and you have changes committed and ready to push to the remote repo, then you can run the following command in Terminal to push the changes. 
   
