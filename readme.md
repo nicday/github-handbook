@@ -1,7 +1,7 @@
 # Git Handbook
 
 ### Creating a new repo
-1. First create a new repo on GitHub. [More information](https://help.github.com/articles/create-a-repo)
+1. First create a new repo on GitHub. [More informationn](https://help.github.com/articles/create-a-repo)
 
 2. In Terminal, navigate to the root directory of the project that you want create the repo from. 
     
@@ -10,40 +10,40 @@
   If you are unsure what directories you can access from the current working directory, then you can use `ls` to list the contents of a directory.
 
 3. Once your current working directory is your project root, then you can initialize the git repo by running: 
-	```sh
-	git init
-	```
+  ```sh
+  git init
+  ```
 
 4. Next you need to add your project files to be staged for the next commit. If you want to add all files within the project project directory and child directories then you can run:
-	```sh
-	git add .
-	```
-	#### Or...
-	If you only want to add individual files, you can run `git add` followed by the filename. 
-	```sh
-	git add index.html
-	```
+  ```sh
+  git add .
+  ```
+  #### Or...
+  If you only want to add individual files, you can run `git add` followed by the filename. 
+  ```sh
+  git add index.html
+  ```
 
 5. After you have staged you changes, the next step is to commit them by running `git commit` and including a commit message. 
 
-	What you include in your commit message is up to you. A good commit message should tell you what you changed, if you were to come back to this project in 6 months time. For example:
-	```sh
-	git commit -m "Changed color scheme"
-	```
+  What you include in your commit message is up to you. A good commit message should tell you what you changed, if you were to come back to this project in 6 months time. For example:
+  ```sh
+  git commit -m "Changed color scheme"
+  ```
 
 6. In order to push your changes to the remote repo on GitHub you will first need to tell your local repo where the remote repo on GitHub is. In the example below, we are creating a new remote repo with the git URL and assigning it the name 'origin'
-	```sh
-	git remote add origin https://github.com/username/repo-name.git
-	```
+  ```sh
+  git remote add origin https://github.com/username/repo-name.git
+  ```
   *Note that you need to use the remote repo URL, for your repo, that you created on GitHub*
 
 7. Once your local repo knows where the remote repo is on GitHub, and you have changes committed and ready to push to the remote repo, then you can run the following command in Terminal to push the changes. 
   
-	In the example below we are pushing changes to the remote repo we created in step 6 and ensuring the changes go the the (default) master branch.
-	```sh
-	git push origin master
-	```
-	*You may need to enter your Github username and password in order to complete this step.*
+  In the example below we are pushing changes to the remote repo we created in step 6 and ensuring the changes go the the (default) master branch.
+  ```sh
+  git push origin master
+  ```
+  *You may need to enter your Github username and password in order to complete this step.*
 
 8. You local project should now be on GitHub. You can check that you project files and changes have successfully be push to Github by visiting the GitHub repo page (e.g. https://github.com/username/repo-name). 
 
@@ -84,15 +84,15 @@
 If you create additional branches directly on Github and need to use them locally on your development machine, you need fetch changes to structure of the repo before you can use them.
 
 1. Fetch changes from the remote repo
-	```sh
-	git fetch origin
-	```
+  ```sh
+  git fetch origin
+  ```
 
 2. To change branches you can use the `git checkout` command:
-	```sh
-	git checkout gh-pages
-	```
-	*In the above example, 'gh-pages' is the name of the remote branch that you want to create locally*
+  ```sh
+  git checkout gh-pages
+  ```
+  *In the above example, 'gh-pages' is the name of the remote branch that you want to create locally*
 
 3. You have now created and changed to the a local branch of the remote branch you want to make changes to. You can follow the steps in 'Pushing changes to an existing repo' to push changes to the branch.
 
@@ -102,10 +102,10 @@ If you create additional branches directly on Github and need to use them locall
   ```
 
 4. If you need to check which branch you are on you can run `git branch` which will produce an output similar to the below, where the selected branch is identified with a `*` in front of the branch name.
-	```sh
-	  * master
-	     gh-pages
-	```
+  ```sh
+    * master
+       gh-pages
+  ```
 
 ### Cloning a repo
 To copy an existing repo to your local machine (for example, to access and update your repo from another computer) you run `git clone` followed by the git url of the existing repo.
@@ -117,4 +117,34 @@ git clone https://github.com/username/repo-name.git
 Using this technique you can download public repos for existing libraries and frameworks such as jQuery, Lightbox2, Foundation, etc...
 
 ### Merging branches
-*To be completed...*
+When you have finished working on a feature branch and are ready to incorporate your new code into your master branch (or any other branch, for example the `gh-pages`) you will need to merge your feature branch into master branch (or other desired branch).
+
+1.  Ensure that all required changes have commited on your feature branch. If you have uncommited changes which you do not want to commit, you will need to [stash](http://git-scm.com/docs/git-stash) these.
+
+2.  Checkout the branch that you want to merge into (e.g. master). 
+
+    ``` sh
+    git checkout master
+    ```
+3. Run the merge command with the name of the branch (e.g. new_feature) you want to merge from.
+    
+    ``` sh
+    git merge new_feature
+    ```
+
+4. If all is successful and you have no [merge conflicts](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging#Basic-Merge-Conflicts) you will be present with an output similar to:
+    ```sh
+    $ git checkout master
+    $ git merge new_feature
+    Auto-merging README
+    Merge made by the 'recursive' strategy.
+    README | 1 +
+    1 file changed, 1 insertion(+)
+    ```
+    
+    If you experienced an merge conflicts, you will first need to [resolve](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging#Basic-Merge-Conflicts) those conflicts before you can proceed.
+
+### Additional Resources
+- [Download and install Git](http://git-scm.com/downloads)
+- [Interactive Git tutorial](https://try.github.io/)
+- [How to Use GitHub to Contribute to Open Source Projects](http://www.lockergnome.com/web/2011/12/13/how-to-use-github-to-contribute-to-open-source-projects/)
